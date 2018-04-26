@@ -2,82 +2,6 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
-$( document ).ready(function() {
-  $("#login-form").on('change keyup', '.input-control', function(e){
-    let inputs = $("#login-form").serializeArray();
-    inputs = utils.flatten(inputs);
-     if(inputs.username && inputs.password){
-          $('.btn-login').prop("disabled", false);
-          $('.btn-login').removeClass( "btn-gray" ).addClass( "btn-blue" );
-        }else{
-          $('.btn-login').prop("disabled", true);
-          $('.btn-login').removeClass( "btn-blue" ).addClass( "btn-gray" );
-        }
-   });
-
-   $("#register-form").on('change keyup', '.input-control', function(e){
-     let inputs = $("#register-form").serializeArray();
-     inputs = utils.flatten(inputs);
-     let emailavailable;
-     let usernameavailable;
-     let validemail = validateEmail(inputs.email);
-     RegisteredUsers.find((user) => {
-       if(validemail && user.email === inputs.email) {
-         emailavailable = false;
-       } else {
-         emailavailable = true;
-       }
-       if(inputs.username && user.username === inputs.username) {
-         usernameavailable = false;
-       } else {
-         usernameavailable = true;
-       }
-     })
-     if(validemail) {
-       if(emailavailable) {
-         $('.reg-email .error-msg').removeClass( "show" ).addClass( "hide" );
-         $('.reg-email .success-msg').removeClass( "hide" ).addClass( "show" );
-       } else {
-         $('.reg-email .error-msg').removeClass( "hide" ).addClass( "show" );
-         $('.reg-email .success-msg').removeClass( "show" ).addClass( "hide" );
-         return;
-       }
-    } else {
-      $('.reg-email .error-msg').removeClass( "show" ).addClass( "hide" );
-      $('.reg-email .success-msg').removeClass( "show" ).addClass( "hide" );
-    }
-    if(inputs.username) {
-     if(usernameavailable) {
-       $('.reg-username .error-msg').removeClass( "show" ).addClass( "hide" );
-       $('.reg-username .success-msg').removeClass( "hide" ).addClass( "show" );
-     } else {
-       $('.reg-username .error-msg').removeClass( "hide" ).addClass( "show" );
-       $('.reg-username .success-msg').removeClass( "show" ).addClass( "hide" );
-       return;
-     }
-   } else {
-     $('.reg-username .error-msg').removeClass( "show" ).addClass( "hide" );
-     $('.reg-username .success-msg').removeClass( "show" ).addClass( "hide" );
-   }
-
-
-   if(inputs.cpassword) {
-     if(inputs.cpassword !== inputs.password) {
-       $('.reg-cpassword .error-msg').removeClass( "hide" ).addClass( "show" );
-       return;
-     } else {
-       $('.reg-cpassword .error-msg').removeClass( "show" ).addClass( "hide" );
-     }
-   }
-      if(inputs.email && inputs.username && inputs.password && inputs.cpassword && (inputs.gender == 'male' || inputs.gender == 'female')){
-           $('.btn-register').prop("disabled", false);
-           $('.btn-register').removeClass( "btn-gray" ).addClass( "btn-blue" );
-         }else{
-           $('.btn-register').prop("disabled", true);
-           $('.btn-register').removeClass( "btn-blue" ).addClass( "btn-gray" );
-         }
-    })
-})
 
 function User(){
     var args = arguments[0]||{};
@@ -93,6 +17,7 @@ function User(){
     }
     return this;
 }
+
 function Utils(){
     this.flatten = function(list){
         var res={};
@@ -158,11 +83,89 @@ function ShowSuccess(user){
     });
     //console.log(user)
 }
+
 function ShowRegistration(){
     $(".action").hide();
     $(".signup").fadeIn();
 }
+
 function ShowLogin(){
     $(".action").hide();
     $(".login").fadeIn();
 }
+
+$( document ).ready(function() {
+  $("#login-form").on('change keyup', '.input-control', function(e){
+    let inputs = $("#login-form").serializeArray();
+    inputs = utils.flatten(inputs);
+     if(inputs.username && inputs.password){
+          $('.btn-login').prop("disabled", false);
+          $('.btn-login').removeClass( "btn-gray" ).addClass( "btn-blue" );
+        }else{
+          $('.btn-login').prop("disabled", true);
+          $('.btn-login').removeClass( "btn-blue" ).addClass( "btn-gray" );
+        }
+   });
+
+   $("#register-form").on('change keyup', '.input-control', function(e){
+     let inputs = $("#register-form").serializeArray();
+     inputs = utils.flatten(inputs);
+     let emailavailable;
+     let usernameavailable;
+     let validemail = validateEmail(inputs.email);
+     RegisteredUsers.find((user) => {
+       if(validemail && user.email === inputs.email) {
+         emailavailable = false;
+       } else {
+         emailavailable = true;
+       }
+       if(inputs.username && user.username === inputs.username) {
+         usernameavailable = false;
+       } else {
+         usernameavailable = true;
+       }
+     })
+     if(validemail) {
+       if(emailavailable) {
+         $('.reg-email .error-msg').removeClass( "show" ).addClass( "hide" );
+         $('.reg-email .success-msg').removeClass( "hide" ).addClass( "show" );
+       } else {
+         $('.reg-email .error-msg').removeClass( "hide" ).addClass( "show" );
+         $('.reg-email .success-msg').removeClass( "show" ).addClass( "hide" );
+         return;
+       }
+    } else {
+      $('.reg-email .error-msg').removeClass( "show" ).addClass( "hide" );
+      $('.reg-email .success-msg').removeClass( "show" ).addClass( "hide" );
+    }
+    if(inputs.username) {
+     if(usernameavailable) {
+       $('.reg-username .error-msg').removeClass( "show" ).addClass( "hide" );
+       $('.reg-username .success-msg').removeClass( "hide" ).addClass( "show" );
+     } else {
+       $('.reg-username .error-msg').removeClass( "hide" ).addClass( "show" );
+       $('.reg-username .success-msg').removeClass( "show" ).addClass( "hide" );
+       return;
+     }
+   } else {
+     $('.reg-username .error-msg').removeClass( "show" ).addClass( "hide" );
+     $('.reg-username .success-msg').removeClass( "show" ).addClass( "hide" );
+   }
+
+   if(inputs.cpassword) {
+     if(inputs.cpassword !== inputs.password) {
+       $('.reg-cpassword .error-msg').removeClass( "hide" ).addClass( "show" );
+       return;
+     } else {
+       $('.reg-cpassword .error-msg').removeClass( "show" ).addClass( "hide" );
+     }
+   }
+      if(inputs.email && inputs.username && inputs.password && inputs.cpassword && (inputs.gender == 'male' || inputs.gender == 'female')){
+           $('.btn-register').prop("disabled", false);
+           $('.btn-register').removeClass( "btn-gray" ).addClass( "btn-blue" );
+         }else{
+           $('.btn-register').prop("disabled", true);
+           $('.btn-register').removeClass( "btn-blue" ).addClass( "btn-gray" );
+         }
+    })
+})
