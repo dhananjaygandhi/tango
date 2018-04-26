@@ -18,7 +18,7 @@ function createWindow () {
       nodeIntegration: false
     },
     width: 800,
-    height: 600,
+    height: 600
   })
 
   // and load the index.html of the app.
@@ -29,7 +29,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
