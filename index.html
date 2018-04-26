@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Tango | Login</title>
+    <link rel="stylesheet" href="static/third-party/css/bootstrap.min.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="static/third-party/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <header class="header clearfix">
+            <h3 class="text-muted"><a href="/"><img src="static/img/logo.png" alt="Tango Logo" title="Tango" /></a></h3>
+        </header>
+        <section class="action login">
+            <div class="headline">
+                <h1>State thy name and ye shall pass</h1>
+                <h5>Not a member yet? <a href="#" onClick="ShowRegistration();">Register</a> now — it's fun and easy!</h5>
+            </div>
+            <div class="login clearfix">
+                <div class="row">
+                    <form id="login-form" class="form col-sm-7" onsubmit="ValidateLogin(this);return false;">
+                        <div class="form-group">
+                            <label>
+                                <input type="text" name="username" id="username" min="3" placeholder="Username" class="input-control" data-validation="required" data-validation-error-msg="Required field" />
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="relative">
+                                <input type="password" name="password" id="password" placeholder="Password" class="input-control" data-validation="required" data-validation-error-msg="Required field" />
+                                <a href="" class="forgot" title="">Forgot Password?</a>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="remember">
+                                <input type="checkbox"> Remember me
+                            </label>
+                            <button class="btn-login btn-gray" type="submit" disabled="true">Login</button>
+                        </div>
+                    </form>
+                    <div class="col-sm-5">
+                        <div class="clearfix">
+                            <div class="social-login relative">
+                                <div class="or">Or</div>
+                                <button class="facebook"><i class="ic-facebook">&nbsp;</i><span class="text">Login with Facebook</span></button>
+                                <button class="twitter"><i class="ic-twitter">&nbsp;</i><span class="text">Login with Twitter</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="action userinfo">
+            <div class="headline">
+                <h1>Welcome <span class="user_name"></span></h1>
+            </div>
+            <div class="clearfix">
+                <ul>
+                    <li>Name : <span class="user_name"></span></li>
+                    <li>Email : <span class="user_email"></span></li>
+                    <li>Gender : <span class="user_gender"></span></li>
+                    <li>UserName : <span class="user_username"></span></li>
+                </ul>
+            </div>
+        </section>
+        <section class="action signup">
+            <div class="headline">
+                <h1>Join Tango today.</h1>
+                <h5>It's free and always will be.<small>Already have an account? <a href="#" onClick="ShowLogin()"></a></small></h5>
+            </div>
+            <div class="login clearfix">
+                <div class="row">
+                    <form class="form col-sm-7" id="register-form" onsubmit="ValidateRegistration(this);return false;">
+                        <div class="form-group">
+                            <label class="reg-email">
+                                <input type="text" name="email" placeholder="Email Address" class="input-control" data-validation="email" data-validation-error-msg="Not a valid email" />
+                                <span class="hide error-msg"><i class="glyphicon glyphicon-remove"></i> Not Available</span>
+                                <span class="hide success-msg"><i class="glyphicon glyphicon-ok"></i> Available</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="reg-username">
+                                <input type="text" placeholder="Username" name="username" class="input-control" data-validation="required" data-validation-error-msg="Required field"/>
+                                <span class="hide error-msg"><i class="glyphicon glyphicon-remove"></i> Not Available</span>
+                                <span class="hide success-msg"><i class="glyphicon glyphicon-ok"></i> Available</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="password" name="password" placeholder="Password" class="input-control" data-validation="required" data-validation-error-msg="Required field"/>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="reg-cpassword">
+                                <input type="password" name="cpassword" placeholder="Confirm Password" class="input-control" data-validation="required" data-validation-error-msg="Required field" />
+                                <span class="hide error-msg"><i class="glyphicon glyphicon-remove"></i> Password and Confirm Password not match.</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <select class="input-control" name="gender" id="gender" data-validation="required">
+                                <option>Select Sex</option>
+                                <option value="male"> Male </option>
+                                <option value="female"> Female </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="accept">
+                                <p>By clicking Register, you agree to our <a href="">Terms</a> and that you have read our <a href="">Data Use Policy</a>, including our <a href="">Cookie Use</a>.</p>
+                                <button class="btn-register btn-gray" type="submit" disabled="true">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-sm-5">
+                        <div class="clearfix">
+                            <div class="social-login relative">
+                                <div class="or">Or</div>
+                                <button class="facebook"><i class="ic-facebook">&nbsp;</i><span class="text">Login with Facebook</span></button>
+                                <button class="twitter"><i class="ic-twitter">&nbsp;</i><span class="text">Login with Twitter</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card text-center">
+                <div class="headline">
+                    <h1>Learn more!</h1>
+                    <h5>Check out our demos and quick guides to our app </h5>
+                </div>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <div class="embed-responsive-item" onclick="this.nextElementSibling.style.display='block';this.nextElementSibling.src='https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=1&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0'; this.style.display='none'">
+                        <img src="static/img/play.png" style="cursor:pointer;" />
+                    </div>
+                    <iframe style="display: none;" class="embed-responsive-item" src=""></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <script src="static/third-party/js/jquery.form-validator.min.js"></script>
+    <script>
+    $.validate({
+      modules : 'html5'
+    });
+    </script>
+</body>
+</html>

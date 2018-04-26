@@ -1,0 +1,236 @@
+a {
+  color: #53b5e7;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #53b5e7;
+  text-decoration: underline;
+}
+
+a, button {
+  outline: medium none;
+}
+
+body {
+  background-color: #e2e2e2;
+  color: #2a2a2a;
+}
+
+.container {
+  width: 620px;
+  margin: 0 auto;
+}
+
+header {
+    padding: 0;
+}
+
+section {
+  border: 2px solid #d8d8d8;
+  margin: 0 0 10px 0;
+  background-color: #fff;
+}
+.action.login {
+  display: block;
+}
+.action.signup {
+  display: none;
+}
+.action.userinfo {
+  display:none;
+}
+
+.input-control {
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 5px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: normal;
+  width: 200px;
+}
+
+.input-control:focus {
+  outline: medium none;
+  border: 1px solid #b3b3b3;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+.error-msg {
+  color: #cc0000;
+  margin-left: 10px;
+  font-size: 11px;
+}
+
+.error {
+  border: 1px solid #cc0000;
+}
+
+.success-msg {
+  color: #339900;
+  margin-left: 10px;
+  font-size: 11px;
+}
+
+.headline {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.headline h1 {
+  font-size: 18px;
+  margin: 0;
+  color: #2a2a2a;
+}
+
+.headline h5 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+div.login {
+  padding: 30px 20px;
+}
+
+label {
+  display: initial;
+  margin: 0 0 10px 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.forgot {
+  position: absolute;
+  right: 10px;
+    top: 3px;
+  font-size: 10px;
+  font-style: italic;
+}
+.has-error .forgot {
+  right: 98px;
+}
+.social-login {
+  border-left: 1px solid #e2e2e2;
+  padding-left: 30px;
+  margin-left: 10px;
+}
+.btn-gray {
+  background: #d0d0d0;
+  padding: 3px 20px;
+  border: 1px solid #d0d0d0;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px;
+  border-radius: 100px;
+}
+.btn-blue {
+  background: #5bb8e8;
+  padding: 3px 20px;
+  border: 1px solid #5bb8e8;
+  color: #fff;
+  text-shadow: rgba(86, 172, 216, 0.8) 1px 1px 1px;
+  border-radius: 100px;
+}
+.or {
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  padding: 10px;
+  background-color: #fff;
+  font-weight: normal;
+  font-size: 18px;
+}
+.social-login button {
+  padding-right: 10px;
+  height: 30px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-family: inherit;
+  font-size: 11px;
+  margin: 15px 0 15px 0;
+  width: 165px;
+  box-shadow: 0 3px 2px -2px grey;
+  text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 0;
+  text-align: left;
+}
+.ic-twitter {
+  background-image: url(../img/sprite.png);
+  border-right: 1px solid #00aced;
+  width: 20px;
+  height: 25px;
+  padding-right: 25px;
+  float: left;
+  background-position: 3px -15px;
+  background-repeat: no-repeat;
+  background-size: 18px;
+}
+.ic-facebook {
+  background: url(../img/sprite.png);
+  border-right: 1px solid #4c74c4;
+  width: 20px;
+  height: 25px;
+  padding-right: 25px;
+  float: left;
+  background-position: -1px 0;
+  background-repeat: no-repeat;
+}
+.social-login > .facebook {
+  background: #769bd2;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #4c74c4), color-stop(99%, #769bd2));
+  background: -moz-linear-gradient(top, #4c74c4 0%, #769bd2 100%);
+  background: linear-gradient(linear, left top, left bottom, color-stop(1%, #4c74c4), color-stop(99%, #769bd2));
+  background-repeat: no-repeat;
+}
+.social-login > .twitter {
+  background: #7ec5f9;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #00aced), color-stop(99%, #7ec5f9));
+  background: -moz-linear-gradient(top, #00aced 0%, #7ec5f9 100%);
+  background: linear-gradient(linear, left top, left bottom, color-stop(1%, #00aced), color-stop(99%, #7ec5f9));
+  background-repeat: no-repeat;
+}
+.text {
+  display: inline-block;
+  padding: 5px 0 0 10px;
+}
+.remember {
+    font-size: 12px;
+    vertical-align: super;
+    margin-right: 20px;
+}
+.video {
+    text-align: center;
+    padding: 20px;
+}
+.accept {
+  width: 200px;
+  text-align: right;
+}
+.accept p {
+  text-align: left;
+  font-size: 12px;
+}
+.embed-responsive-item {
+  background-image:url('../img/video.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+  display: flex;           /* establish flex container */
+  flex-direction: column;  /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
+}
+.help-block {
+  display: inline;
+  color: #cc0000;
+  margin-left: 10px;
+  font-size: 11px;
+}
+.show {
+  display: inline !important;
+}
