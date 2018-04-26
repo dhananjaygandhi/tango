@@ -8,7 +8,12 @@
     <meta name="author" content="">
     <title>Tango | Login</title>
     <link rel="stylesheet" href="static/third-party/css/bootstrap.min.css">
-    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script>
+      window.nodeRequire = require;
+      delete window.exports;
+      delete window.module;
+    </script>
+    <script src="static/third-party/js/jquery.min.js"></script>
     <script src="static/third-party/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -148,6 +153,10 @@
         </section>
     </div>
     <link rel="stylesheet" href="static/css/style.css">
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js');
+    </script>
     <script type="text/javascript" src="static/js/main.js"></script>
     <script src="static/third-party/js/jquery.form-validator.min.js"></script>
     <script>
