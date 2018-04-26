@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="static/third-party/css/bootstrap.min.css">
     <script>
       window.nodeRequire = require;
+      delete window.require;
       delete window.exports;
       delete window.module;
     </script>
@@ -153,10 +154,6 @@
         </section>
     </div>
     <link rel="stylesheet" href="static/css/style.css">
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js');
-    </script>
     <script type="text/javascript" src="static/js/main.js"></script>
     <script src="static/third-party/js/jquery.form-validator.min.js"></script>
     <script>
