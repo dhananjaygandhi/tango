@@ -86,12 +86,12 @@ function ShowSuccess(user){
 
 function ShowRegistration(){
     $(".action").hide();
-    $(".signup").fadeIn();
+    $(".signup").show();
 }
 
 function ShowLogin(){
     $(".action").hide();
-    $(".login").fadeIn();
+    $(".login").show();
 }
 
 $( document ).ready(function() {
